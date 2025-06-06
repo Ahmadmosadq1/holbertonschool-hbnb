@@ -1,0 +1,28 @@
+sequenceDiagram
+    participant Client
+    participant API as API Service
+    participant Auth as Auth Service
+    participant Facade as HBnB Facade
+    participant Review as Review Model
+    participant Place as Place Model
+    participant ReviewRepo as Review Repository
+    participant DB as Database
+    
+    Client->>API: POST {place_id}/reviews (review_data, auth_token)
+    API->>Auth: Validate auth_token
+    Auth-->>API: User authenticated
+    API->>API: Validate input data
+    API->>Facade: create_review(review_data, user_id, place_id)
+    Facade->>Place: get_place(place_id)
+    Place-->>Facade: Place exists
+    Facade->>Review: Review(review_data)
+    Review->>Review: Validate rating (1-5)
+    Review->>Review: Set user_id and place_id
+    Review->>ReviewRepo: save(review)
+    ReviewRepo->>DB: INSERT review record
+    DB-->>ReviewRepo: Success/Error
+    ReviewRepo-->>Review: Review object
+    Review-->>Facade: Review object
+    Facade-->>API: Review object
+    API->>API: Format response
+    API-->>Client: Created (review_data)

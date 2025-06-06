@@ -1,0 +1,25 @@
+sequenceDiagram
+    participant Client
+    participant API as API Service
+    participant Auth as Auth Service
+    participant Facade as HBnB Facade
+    participant Place as Place Model
+    participant PlaceRepo as Place Repository
+    participant DB as Database
+
+    Client->>API: POST  (place_data, auth_token)
+    API->>Auth: Validate auth_token
+    Auth-->>API: User authenticated
+    API->>API: Validate input data
+    API->>Facade: create_place(place_data, user_id)
+    Facade->>Place: Instantiate Place(place_data)
+    Place->>Place: Validate business rules
+    Place->>Place: Set owner_id
+    Place->>PlaceRepo: save(place)
+    PlaceRepo->>DB: INSERT place record
+    DB-->>PlaceRepo: Success/Error
+    PlaceRepo-->>Place: Saved Place object
+    Place-->>Facade: Place object
+    Facade-->>API: Place object
+    API->>API: Format response
+    API-->>Client: Created (place_data)

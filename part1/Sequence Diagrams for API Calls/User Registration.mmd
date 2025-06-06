@@ -1,0 +1,22 @@
+sequenceDiagram
+    participant Client
+    participant API as API Service
+    participant Facade as HBnB Facade
+    participant User as User Model
+    participant UserRepo as User Repository
+    participant DB as Database
+
+    Client->>API: POST  (user_data)
+    API->>API: Validate input data
+    API->>Facade: create_user(user_data)
+    Facade->>User: Instantiate User(user_data)
+    User->>User: Validate business rules
+    User->>User: Hash password
+    User->>UserRepo: save(user)
+    UserRepo->>DB: INSERT user record
+    DB-->>UserRepo: Success/Error
+    UserRepo-->>User: Saved User object
+    User-->>Facade: User object
+    Facade-->>API: User object
+    API->>API: Format response
+    API-->>Client: Created (user_data)

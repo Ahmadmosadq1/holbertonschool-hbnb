@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant Client
+    participant API as API Service
+    participant Facade as HBnB Facade
+    participant Place as Place Model
+    participant PlaceRepo as Place Repository
+    participant DB as Database
+    
+    Client->>API: GET places
+    API->>API: Parse query parameters
+    API->>Facade: get_all_places(filters)
+    Facade->>Place: apply_filters(filters)
+    Place->>PlaceRepo: find_all(criteria)
+    PlaceRepo->>DB: SELECT places with filters
+    DB-->>PlaceRepo: List of place records
+    PlaceRepo-->>Place: List of Place objects
+    Place->>Place: Load related amenities
+    Place-->>Facade: List of Place objects
+    Facade-->>API: List of Place objects
+    API->>API: Format response with pagination
+    API-->>Client: OK (places_list)
