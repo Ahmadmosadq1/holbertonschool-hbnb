@@ -14,7 +14,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 2. High-Level Architecture
 
 ### 2.1 Package Diagram
-> ![Package Diagram](path/to/package-diagram.png)
+> ![Package Diagram](part1/High-Level Package Diagram/_High-Level Package Diagram.drawio.png)
 
 ### 2.2 Layered Architecture
 - **Presentation Layer (API)**: Handles HTTP requests/responses, performs early validation, and communicates with the facade.
