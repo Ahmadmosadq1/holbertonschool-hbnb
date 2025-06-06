@@ -26,7 +26,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 3. Business Logic Layer
 
 ### 3.1 Class Diagram
-> ![Class Diagram](path/to/class-diagram.png)
+> ![Class Diagram](part1/Detailed-Class-Diagram-for-Business-Logic-Layer/Detailed-Class-Diagram-For-Business-Logic-Layer.mmd)
 
 ### 3.2 Entity Overview
 
