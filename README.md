@@ -71,7 +71,8 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 4. API Interaction Flow
 
 ### 4.1 Sequence Diagram — User Registration
-> ![User Registration Sequence](path/to/sequence-register.png)
+> ![User Registration Sequence](part1/Detailed-Class-Diagram-for-Business-Logic-Layer/Detailed-Class-Diagram-For-Business-Logic-Layer.mmd
+)
 
 1. User sends a `POST /users` request. 
 2. API validates the request's fields.
@@ -81,8 +82,9 @@ This document provides a comprehensive technical blueprint for a simplified vers
 6. `User.save()` method called
 7. Result returned in dictionary and then converted to JSON by `jsonify()` .
 
-### 4.2 Sequence Diagram — Create Review
-> ![Review Creation Sequence](path/to/sequence-review.png)
+### 4.2 Sequence Diagram — Place Creation
+> ![Review Creation Sequence](part1/Sequence-Diagrams-for-API-Calls/Place-Creation.mmd
+)
 
 1. User sends `POST /reviews` request.
 2. API checks user's token and validates.
@@ -93,7 +95,8 @@ This document provides a comprehensive technical blueprint for a simplified vers
 
 ---
 ### 4.3 Sequence Diagram — Review Submission
-> ![Review Submission](path/to/sequence-review.png)
+> ![Review Submission](part1/Sequence-Diagrams-for-API-Calls/Review-Submission.mmd
+)
 
 1. The client sends a `POST /<place_id>/reviews` request, including `review_data.
 2. API checks user's token and validates.
@@ -107,7 +110,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 
 ---
 ### 4.4 Sequence Diagram — Fetching a List of Places:
-> ![Fetching a List of Places](path/to/sequence-review.png)
+> ![Fetching a List of Places](part1/Sequence-Diagrams-for-API-Calls/Fetching-a-List-of-Places.mmd)
 
 1. The client sends a `GET /places` request.
 2. API parses the filters and calls `get_all_places(filters)` on the facade.
