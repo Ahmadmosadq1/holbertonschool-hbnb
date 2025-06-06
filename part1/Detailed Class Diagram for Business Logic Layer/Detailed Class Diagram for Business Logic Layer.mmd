@@ -1,0 +1,76 @@
+%%{init: {
+  "theme": "dark",
+  "themeVariables": {
+    "primaryColor": "#1f78b4",
+    "edgeLabelBackground": "#1e1e1e",
+    "clusterBkg": "#2b2b2b",
+    "fontSize": "16px",
+    "fontFamily": "Cairo, sans-serif"
+  }
+}}%%
+
+classDiagram
+    class BaseModel {
+        <<abstract>>
+        -id
+        -created_at
+        -updated_at
+        +save()
+        +update(data)
+        +delete()
+        +to_dict()
+        +validate()
+    }
+
+    class User {
+        -first_name
+        -last_name
+        -email
+        -password
+        -is_admin
+        +hash_password()
+        +verify_password()
+        +update_profile()
+        +get_owned_places()
+        +get_user_reviews()
+    }
+
+    class Place {
+        -title
+        -description
+        -price
+        -latitude
+        -longitude
+        -owner_id
+        +get_amenities()
+        +get_reviews()
+        +calculate_average_rating()
+    }
+
+    class Review {
+        -rating
+        -comment
+        -place_id
+        -user_id
+        +update_review()
+        +can_be_updated_by()
+        +can_be_deleted_by()
+    }
+
+    class Amenity {
+        -name
+        -description
+        +get_associated_places()
+    }
+
+    %% Inheritance Relationships
+    BaseModel <|-- User
+    BaseModel <|-- Place
+    BaseModel <|-- Review
+    BaseModel <|-- Amenity
+
+    %% Domain Model Relationships
+    User "1" *-- "0..*" Place : owns
+    User "1" *-- "0..*" Review : writes
+    Place "1" *-- "0..*" Review : has
+    Place "0..*" o-- "0..*" Amenity : contains
