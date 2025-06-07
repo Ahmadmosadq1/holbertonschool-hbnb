@@ -70,8 +70,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 4. API Interaction Flow
 
 ### 4.1 Sequence Diagram — User Registration
-> ![User Registration Sequence](part1/Sequence-Diagrams-for-API-Calls/Fetching_place.jpeg
-)
+> ![part1/Sequence-Diagrams-for-API-Calls/User_registration.jpeg)
 
 1. User sends a `POST /users` request. 
 2. API validates the request's fields.
