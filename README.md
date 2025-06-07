@@ -26,8 +26,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 3. Business Logic Layer
 
 ### 3.1 Class Diagram
-> ![Class Diagram](part1/Detailed-Class-Diagram-for-Business-Logic-Layer/Detailed-Class-Diagram-For-Business-Logic-Layer.mmd)
-
+> ![Class Diagram](part1/Sequence-Diagrams-for-API-Calls/Fetching_place.jpeg)
 ### 3.2 Entity Overview
 
 - **BaseModel**
@@ -71,7 +70,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 4. API Interaction Flow
 
 ### 4.1 Sequence Diagram — User Registration
-> ![User Registration Sequence](part1/Detailed-Class-Diagram-for-Business-Logic-Layer/Detailed-Class-Diagram-For-Business-Logic-Layer.mmd
+> ![User Registration Sequence](part1/Sequence-Diagrams-for-API-Calls/Fetching_place.jpeg
 )
 
 1. User sends a `POST /users` request. 
@@ -83,8 +82,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 7. Result returned in dictionary and then converted to JSON by `jsonify()` .
 
 ### 4.2 Sequence Diagram — Place Creation
-> ![Review Creation Sequence](part1/Sequence-Diagrams-for-API-Calls/Place-Creation.mmd
-)
+> ![Review Creation Sequence](part1/Sequence-Diagrams-for-API-Calls/Place_creation.jpeg)
 
 1. User sends `POST /reviews` request.
 2. API checks user's token and validates.
@@ -95,8 +93,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 
 ---
 ### 4.3 Sequence Diagram — Review Submission
-> ![Review Submission](part1/Sequence-Diagrams-for-API-Calls/Review-Submission.mmd
-)
+> ![Review Submission](part1/Sequence-Diagrams-for-API-Calls/Reviwe_Submission.jpeg)
 
 1. The client sends a `POST /<place_id>/reviews` request, including `review_data.
 2. API checks user's token and validates.
@@ -110,7 +107,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 
 ---
 ### 4.4 Sequence Diagram — Fetching a List of Places:
-> ![Fetching a List of Places](part1/Sequence-Diagrams-for-API-Calls/Fetching-a-List-of-Places.mmd)
+> ![Fetching a List of Places](part1/Sequence-Diagrams-for-API-Calls/Fetching_place.jpeg)
 
 1. The client sends a `GET /places` request.
 2. API parses the filters and calls `get_all_places(filters)` on the facade.
