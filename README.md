@@ -26,7 +26,7 @@ This document provides a comprehensive technical blueprint for a simplified vers
 ## 3. Business Logic Layer
 
 ### 3.1 Class Diagram
-> ![Class Diagram](part1/Sequence-Diagrams-for-API-Calls/Fetching_place.jpeg)
+> ![Class Diagram](part1/Detailed-Class-Diagram-for-Business-Logic-Layer/Class_diagram.jpeg)
 ### 3.2 Entity Overview
 
 - **BaseModel**
