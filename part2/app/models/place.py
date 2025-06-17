@@ -12,9 +12,3 @@ class Place(BaseModel):
         self.owner = owner
         self.reviews = []
         self.amenities = []
-
-    def add_review(self, review):
-        self.reviews.append(review)
-
-    def add_amenity(self, amenity):
-        self.amenities.append(amenity)

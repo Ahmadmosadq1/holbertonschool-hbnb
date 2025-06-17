@@ -1,14 +1,12 @@
-import datetime
+from part2.app.models.basemodel import BaseModel
 
 
-class User:
+class User(BaseModel):
 
-    def __init__(self, id: str, first_name: str, last_name: str, email: str, created_at: datetime, updated_at: datetime, is_admin: bool = False):
-        self.id = id
+    def __init__(self, first_name: str, last_name: str, email: str, is_admin: bool = False):
+        super().__init__()
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.created_at = created_at
-        self.updated_at = updated_at
         self.is_admin = is_admin
         
