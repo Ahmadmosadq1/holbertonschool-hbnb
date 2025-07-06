@@ -1,7 +1,9 @@
+# part3/config.py
 import os
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY', 'default_secret_key')
+    JWT_SECRET_KEY = SECRET_KEY
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
 class DevelopmentConfig(Config):
@@ -13,7 +15,7 @@ class TestingConfig(Config):
     SQLALCHEMY_DATABASE_URI = "sqlite:///:memory:"
 
 class ProductionConfig(Config):
-      SQLALCHEMY_DATABASE_URI = os.environ.get(
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
         "DATABASE_URL",
         "postgresql://user:password@localhost/your_default_db"
     )
