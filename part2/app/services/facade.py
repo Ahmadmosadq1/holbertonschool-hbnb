@@ -16,6 +16,7 @@ class HBnBFacade:
     def create_user(self, user_data):
         user = User(**user_data)
         self.user_repo.add(user)
+        """this is why add was defined as an abtsarct"""
         return user
 
     def get_user(self, user_id):
@@ -44,7 +45,7 @@ class HBnBFacade:
         return self.amenity_repo.get(amenity_id)
 
     def get_all_amenities(self):
-        return self.amenity_repo.all()
+        return self.amenity_repo.get_all()
 
     def update_amenity(self, amenity_id, amenity_data):
         amenity = self.amenity_repo.get(amenity_id)
@@ -63,7 +64,7 @@ class HBnBFacade:
         return self.place_repo.get(place_id)
 
     def get_all_places(self):
-        return self.place_repo.all()
+        return self.place_repo.get_all()
 
     def update_place(self, place_id, place_data):
         place = self.place_repo.get(place_id)
